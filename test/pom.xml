@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.test</groupId>
+  <artifactId>test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <serenity.core.version>2.0.60</serenity.core.version>
+        <serenity.junit.version>2.0.60</serenity.junit.version>
+        <serenity.cucumber.version>1.9.22</serenity.cucumber.version>
+        <serenity.maven.version>1.5.8</serenity.maven.version>
+        <webdriver.driver>chrome</webdriver.driver>
+        <webdriver.remote.url>http://nikunj_72ZobU:BDATjosDXCxK1yMb9x3Y@hub-cloud.browserstack.com/wd/hub
+        </webdriver.remote.url>
+        <bs.version>0.4</bs.version>
+        <log4j.version>2.14.0</log4j.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <junit.version>4.11</junit.version>
+        <assert.version>1.7.0</assert.version>
+        <browserstack.local>1.0.3</browserstack.local>
+        <maven.compiler.version>3.2</maven.compiler.version>
+        <maven.failsafe.version>2.21.0</maven.failsafe.version>
+        <maven.surefire.version>2.21.0</maven.surefire.version>
+        <serenity.emailer.version>2.0.7</serenity.emailer.version>
+    </properties>
+    
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/io.prometheus/simpleclient_pushgateway -->
+        <dependency>
+            <groupId>io.prometheus</groupId>
+            <artifactId>simpleclient_pushgateway</artifactId>
+            <version>0.15.0</version>
+        </dependency>
+        <!-- Log4j -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- Log4j -->
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ini4j</groupId>
+            <artifactId>ini4j</artifactId>
+            <version>0.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-core</artifactId>
+            <version>${serenity.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-junit</artifactId>
+            <version>${serenity.junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-cucumber</artifactId>
+            <version>${serenity.cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>${serenity.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assert.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- BrowserStack Dependency -->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>automate-client-java</artifactId>
+            <version>${bs.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>${browserstack.local}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple/1.1.1 -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources/config</directory>
+                <includes>
+                    <include>log4j2.xml</include>
+                </includes>
+            </testResource>
+        </testResources>
+    </build>
+
+</project>
